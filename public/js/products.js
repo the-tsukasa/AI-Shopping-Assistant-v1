@@ -28,11 +28,12 @@ function getProductsJSONPath() {
     const origin = window.location.origin;
 
     if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
-        return "/api/products"; // 服务器模式
+        return "/api/products"; // 服务器模式（本地）
     } else {
-        return "./data/products.json"; // 静态模式 (GitHub Pages 或本地 file://)
+        return "./data/products.json"; // GitHub Pages 和 本地 file:// 模式
     }
 }
+
 
 
 // 3️⃣ 页面加载时调用
