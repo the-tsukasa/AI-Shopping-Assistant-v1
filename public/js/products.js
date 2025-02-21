@@ -29,12 +29,11 @@ function getProductsJSONPath() {
 
     if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
         return "/api/products"; // 服务器模式
-    } else if (origin.includes("github.io")) {
-        return "/AI-Shopping-Assistant-v1/data/products.json"; // GitHub Pages 模式
     } else {
-        return "./data/products.json"; // 静态模式 (本地 file:// 或其他)
+        return "./data/products.json"; // 静态模式 (GitHub Pages 或本地 file://)
     }
 }
+
 
 // 3️⃣ 页面加载时调用
 document.addEventListener('DOMContentLoaded', loadProducts);
