@@ -25,10 +25,14 @@ function loadProducts() {
 
 // 2️⃣ 自动判断 JSON 文件路径
 function getProductsJSONPath() {
-    if (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1")) {
+    const origin = window.location.origin;
+
+    if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
         return "/api/products"; // 服务器模式
+    } else if (origin.includes("github.io")) {
+        return "/AI-Shopping-Assistant-v1/data/products.json"; // GitHub Pages 模式
     } else {
-        return "./data/products.json"; // 静态模式 (GitHub Pages, 本地 file://)
+        return "./data/products.json"; // 静态模式 (本地 file:// 或其他)
     }
 }
 
